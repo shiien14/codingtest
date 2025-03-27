@@ -1,4 +1,5 @@
 import sys
+from itertools import accumulate
 
 input = sys.stdin.readline
 
@@ -7,9 +8,8 @@ nums = list(map(int, input().split()))
 
 nums.sort()
 
-sums = [0]
-for i in range(N):  
-    sums.append(nums[i] + sums[i])  
+sums = list(accumulate(nums))
+sums.insert(0,0)
 
 for _ in range(Q):
     L,R = map(int, input().split())
