@@ -1,22 +1,25 @@
 import sys
+
 input = sys.stdin.readline
 
-N = int(input().strip())
-budgets=list(map(int, input().split()))
-total_budget = int(input().strip())
+n = int(input())
+requests=list(map(int, input().split()))
+m = int(input())
 
-low, high = 0, max(budgets)
+requests.sort()
+
+start, end = 0, requests[-1]
 result = 0
 
-while low <= high:
-    mid = (low + high) // 2
-    
-    allocated = sum(min(b, mid) for b in budgets)
-        
-    if allocated <= total_budget:
-        result = mid
-        low = mid + 1
-    else:
-        high = mid - 1
+while start <= end:
+    mid = (start + end) // 2
 
+    allocated = sum(min(r, mid) for r in requests)
+
+    if allocated <= m :
+        result = mid
+        start = mid + 1
+    else:
+        end = mid - 1
+        
 print(result)
