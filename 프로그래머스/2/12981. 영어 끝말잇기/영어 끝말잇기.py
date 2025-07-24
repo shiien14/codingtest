@@ -1,6 +1,7 @@
 def solution(n, words):
-    answer = []
-
+    # %n으로 차례 저장
+    # 이전에 나왔던 단어 <- used 배열
+    # 마지막 문자 저장 <- alpha
     count = [1]*n
     used=[]
     alpha=words[0][0]
