@@ -1,23 +1,10 @@
 def change(num, ch):
-    change_num=''
-    while num:
-        if num%ch ==10:
-            change_num = 'A'+change_num
-        elif num%ch ==11:
-            change_num = 'B'+change_num
-        elif num%ch ==12:
-            change_num = 'C'+change_num
-        elif num%ch ==13:
-            change_num = 'D'+change_num
-        elif num%ch ==14:
-            change_num = 'E'+change_num
-        elif num%ch ==15:
-            change_num = 'F'+change_num
-        else:
-            change_num=str(num%ch)+change_num
-        num//=ch
-    
-    return change_num
+    total = "0123456789ABCDEF"
+    i,j = divmod(num,ch)
+    if i ==0:
+        return total[j]
+    else : 
+        return change(i,ch)+total[j]
 
 def solution(n, t, m, p):
     answer = ''
