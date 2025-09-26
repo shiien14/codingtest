@@ -2,17 +2,16 @@ import sys
 
 input = sys.stdin.readline
 
-nums = input().strip()
-count1,count0=0,0
+nums = list(input().strip())
+count1=nums.count('1')//2
+count0=nums.count('0')//2
 
-for n in nums:
-    if n == '1':
-        count1+=1
-    else:
-        count0+=1
-    
-count0//=2
-count1//=2
+for _ in range(count1):
+    nums.pop(nums.index('1'))
 
-answer = '0'*count0 +'1'*count1
-print(answer)
+nums = nums[::-1]
+for _ in range(count0):
+    nums.pop(nums.index('0'))
+
+nums = nums[::-1]
+print(''.join(nums))
